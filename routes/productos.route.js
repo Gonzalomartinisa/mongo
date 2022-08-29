@@ -6,9 +6,9 @@ const router = express.Router();
 //Crear producto
 router.post("/productos", async (req, res) => {
     try {
-        const producto = productos(req.body);
+        const producto = productos.model(req.body);
         await producto.save()
-        res.json("Se creo un producto nuevo")
+        res.json(producto)
     } catch (error) {
         console.error(error);
     }
@@ -17,7 +17,7 @@ router.post("/productos", async (req, res) => {
 //Traer todos los productos
 router.get("/productos", async (req, res) =>{
     try {
-        const allProduct = await productos.find()
+        const allProduct = await productos.model.find()
         res.send(allProduct)
     } catch (error) {
         console.error(error);
@@ -27,7 +27,7 @@ router.get("/productos", async (req, res) =>{
 //Buscar producto por ID
 router.get("/productos/:id", async (req, res) =>{
     try {
-        const productoEncontrado = await productos.findById(req.params.id)
+        const productoEncontrado = await productos.model.findById(req.params.id)
         if (productoEncontrado) {
             res.send(productoEncontrado)
         } else {
@@ -43,7 +43,7 @@ router.put("/productos/:id", async (req, res) =>{
     try{
         const { id } = req.params;
         const {title, autor, img, price, stock} = req.body;
-        await productos.updateOne({_id: id}, {$set:{title, autor, img, price, stock}})
+        await productos.model.updateOne({_id: id}, {$set:{title, autor, img, price, stock}})
         res.json("El producto fue actualizado")
     } catch (error) {
         console.error(error);
@@ -54,7 +54,7 @@ router.put("/productos/:id", async (req, res) =>{
 router.delete("/productos/:id", async (req, res) =>{
     try{
         const { id } = req.params;
-        await productos.deleteOne({_id: id})
+        await productos.model.deleteOne({_id: id})
         res.json("El productofue fue borrado")
     } catch (error) {
         console.error(error);

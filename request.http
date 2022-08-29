@@ -3,25 +3,25 @@ POST http://localhost:8080/api/productos HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Los hijo de Hurin",
+    "title": "El hobbit",
     "autor": "JRR Tolkien",
     "img": "lalala",
     "price": "3000",
-    "stock": "5"
+    "stock": "50"
 }
 
 ###
 GET http://localhost:8080/api/productos HTTP/1.1
 
 ###
-GET http://localhost:8080/api/productos/6304423ec5ce60c6af70826f HTTP/1.1
+GET http://localhost:8080/api/productos/630c2cde62ffc874e4c91a80 HTTP/1.1
 
 ###
 PUT http://localhost:8080/api/productos/630624c1f18503dc35a8e112 HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Los hijo de Hurin",
+    "title": "Los hijos de Hurin",
     "autor": "JRR Tolkien",
     "img": "lalala",
     "price": "3000",
@@ -29,24 +29,24 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/productos/630623427d0547475bc5d397 HTTP/1.1
+DELETE http://localhost:8080/api/productos/630affe0b327cd1c4e1f433f HTTP/1.1
 
 ###
 POST http://localhost:8080/api/carrito HTTP/1.1
 Content-Type: application/json
 
-{
-   "productos": ""
+{  
+   "id": 10
 }
 
 ###
-GET http://localhost:8080/api/carrito/63069cbf261df7b7d3d3dba3/productos HTTP/1.1
+GET http://localhost:8080/api/carrito/630c2e914fb4a7e7f1751ebb/productos HTTP/1.1
 
 ###
-DELETE  http://localhost:8080/api/carrito/6306aa06f5b60be159102572 HTTP/1.1
+DELETE  http://localhost:8080/api/carrito/63069cbf261df7b7d3d3dba3 HTTP/1.1
 
 ###
-POST http://localhost:8080/api/carrito/63069ca2261df7b7d3d3dba0/productos HTTP/1.1
+POST http://localhost:8080/api/carrito/63099956bc2c1f3009952ce0/productos HTTP/1.1
 Content-Type: application/json
 
 {
@@ -56,3 +56,6 @@ Content-Type: application/json
     "price": "3000",
     "stock": "5"
 }
+
+###
+DELETE  http://localhost:8080/api/carrito/63069ca2261df7b7d3d3dba0/productos/630b0802259c64ed3d5fa120 HTTP/1.1

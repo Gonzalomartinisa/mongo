@@ -17,7 +17,7 @@ app.use('/api/carrito', routesCarrito)
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) =>{
-      res.sendFile(__dirname + '/public/index.html')
+      res.sendFile(__dirname + '/views/index.html')
 });
 
 //Rutas
@@ -30,3 +30,10 @@ const server = app.listen(PORT, () => {
 })
 server.on('error', e =>console.log(`Error en server`, e))
 
+mongoose.connect('mongodb+srv://Gonzalo:9enbGWk4Moyd65kM@cluster0.oewrg.mongodb.net/?retryWrites=true&w=majority', 
+{    
+}, err =>{
+    if(err){console.log(err); return}
+
+    console.log('DB conectado')
+});
